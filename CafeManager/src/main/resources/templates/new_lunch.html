@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th=="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+</head>
+<body>
+<div align="center">
+  <h2>New Lunch</h2>
+  <form action="save" th:action="@{/lunch-create}" th:object="${lunch}" method="post">
+    <table border="0" cellpadding="5">
+      <label for="id">Id</label>
+      <input type="text" th:field="*{id}" id="id" placeholder="Id">
+      <label for="Name">Name</label>
+      <input type="text" th:field="*{Name}" id="Name" placeholder="Name">
+      <label for="structure">Structure</label>
+      <input type="text" th:field="*{structure}" id="structure" placeholder="Structure">
+      <label for="description">Description</label>
+      <input type="text" th:field="*{description}" id="description" placeholder="Description">
+      <label for="price">Price</label>
+      <input type="text" th:field="*{price}" id="price" placeholder="Price">
+      <input type="submit" value="Save">
+    </table>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+</head>
+<body>
+<div th:switch="${table}">
+<form th:case="dessert" action="#" th:action="@{/update/dessert}" th:object="${cafe}" method="post">
+    <label for="id">Id</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="Id">
+    <br/>
+    <label for="Name">Name</label>
+    <input type="text" th:field="*{Name}" id="Name" placeholder="Name">
+    <br/>
+    <label for="description">Description</label>
+    <input type="text" th:field="*{description}" id="description" placeholder="Description">
+    <br/>
+    <label for="price">Price</label>
+    <input type="text" th:field="*{price}" id="price" placeholder="Price">
+    <br/>
+    <input type="submit" value="Update">
+</form>
+<form th:case="coffe" action="#" th:action="@{/update/coffe}" th:object="${coffe}" method="post">
+        <label for="id_coffe">Id</label>
+        <input readonly type="number" th:field="*{id}" id="id_coffe" placeholder="Id">
+        <br/>
+        <label for="Name_coffe">Name</label>
+        <input type="text" th:field="*{Name}" id="Name_coffe" placeholder="Name">
+        <br/>
+        <label for="description_coffe">Description</label>
+        <input type="text" th:field="*{description}" id="description_coffe" placeholder="Description">
+        <br/>
+        <label for="price_coffe">Price</label>
+        <input type="text" th:field="*{price}" id="price_coffe" placeholder="Price">
+        <br/>
+        <input type="submit" value="Update">
+    </form>
+<form th:case="lunch" action="#" th:action="@{/update/lunch}" th:object="${lunch}" method="post">
+        <label for="id_lunch">Id</label>
+        <input readonly type="number" th:field="*{id}" id="id_lunch" placeholder="Id">
+        <br/>
+        <label for="Name_lunch">Name</label>
+        <input type="text" th:field="*{Name}" id="Name_lunch" placeholder="Name">
+        <br/>
+       <label for="structure_lunch">Structure</label>
+       <input type="text" th:field="*{structure}" id="structure_lunch" placeholder="structure">
+       <br/>
+        <label for="description_lunch">Description</label>
+        <input type="text" th:field="*{description}" id="description_lunch" placeholder="Description">
+        <br/>
+        <label for="price_lunch">Price</label>
+        <input type="text" th:field="*{price}" id="price_lunch" placeholder="Price">
+        <br/>
+        <input type="submit" value="Update">
+    </form>
+<form th:case="delivery" action="#" th:action="@{/update/delivery}" th:object="${delivery}" method="post">
+        <label for="id_delivery">Id</label>
+        <input readonly type="number" th:field="*{id}" id="id_delivery" placeholder="Id">
+        <br/>
+        <label for="fio">FIO</label>
+        <input type="text" th:field="*{fio}" id="fio" placeholder="FIO">
+        <br/>
+        <label for="structure_delivery">Structure</label>
+        <input type="text" th:field="*{structure}" id="structure_delivery" placeholder="structure">
+        <br/>
+        <label for="num">Num</label>
+        <input type="text" th:field="*{num}" id="num" placeholder="Num">
+        <br/>
+        <label for="address">Address</label>
+        <input type="text" th:field="*{address}" id="address" placeholder="Address">
+        <br/>
+        <label for="price_delivery">Price</label>
+        <input type="text" th:field="*{price}" id="price_delivery" placeholder="Price">
+        <br/>
+        <input type="submit" value="Update">
+    </form>
+<form th:case="breakfast" action="#" th:action="@{/update/breakfast}" th:object="${breakfast}" method="post">
+        <label for="id_breakfast">Id</label>
+        <input readonly type="number" th:field="*{id}" id="id_breakfast" placeholder="Id">
+        <br/>
+        <label for="Name_breakfast">Name</label>
+        <input type="text" th:field="*{Name}" id="Name_breakfast" placeholder="Name">
+        <br/>
+        <label for="structure_breakfast">Structure</label>
+        <input type="text" th:field="*{structure}" id="structure_breakfast" placeholder="structure">
+        <br/>
+        <label for="description_breakfast">Description</label>
+        <input type="text" th:field="*{description}" id="description_breakfast" placeholder="Description">
+        <br/>
+        <label for="price_breakfast">Price</label>
+        <input type="text" th:field="*{price}" id="price_breakfast" placeholder="Price">
+        <br/>
+        <input type="submit" value="Update">
+    </form>
+</div>
+</body>
+</html>

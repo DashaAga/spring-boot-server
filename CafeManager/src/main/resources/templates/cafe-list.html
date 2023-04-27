@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styleCafe.css">
+</head>
+<body>
+<h1>Кофейня</h1>
+<div th:switch="${type}">
+    <h2 th:case="null">Cafe not found!</h2>
+    <div th:case="desserts" class="scroll-table">
+        <div style="clear: both; text-align: center;">
+            <hr><a href="/cafe/desserts">Десерты и выпечка</a></hr>
+            <hr><a href="/cafe/coffe">Кофе/чай</a></hr>
+            <hr><a href="/cafe/breakfast">Завтраки</a></hr>
+            <hr><a href="/cafe/lunch">Ланч</a></hr>
+            <hr><a href="/cafe/delivery">Доставка выпечки</a></hr>
+        </div>
+        <table class="scroll-table-body">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cafe : ${cafe}">
+                <td th:text="${cafe.id}"></td>
+                <td th:text="${cafe.name}"></td>
+                <td th:text="${cafe.description}"></td>
+                <td th:text="${cafe.price}"></td>
+                <td><a th:href="@{/update/dessert/{id}(id=${cafe.id})}">Edit</a></td>
+                <td><a th:href="@{/delete/dessert/{id}(id=${cafe.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <p><a href="/dessert-create">Добавить блюдо</a></p>
+        <button type="button"><a href="/cafe/desserts/id">Сортировать по столбцу id</a></button><br>
+        <button type="button"><a href="/cafe/desserts/price">Сортировать по столбцу price</a></button><br>
+        <button type="button"><a href="/cafe/desserts/name">Сортировать по столбцу name</a></button>
+        <form action="#" th:action="@{/find/desserts}" method="post">
+            <label for="searchline">text</label>
+            <input type="text" id="searchline" name="searchline" placeholder="Text">
+            <input type="submit" value="Find text">
+        </form>
+        <button type="button" style="float: right;"><a href="/about">About</a></button>
+    </div>
+    <div th:case="coffe" class="scroll-table">
+        <div style="clear: both; text-align: center;">
+            <hr><a href="/cafe/desserts">Десерты и выпечка</a></hr>
+            <hr><a href="/cafe/coffe">Кофе/чай</a></hr>
+            <hr><a href="/cafe/breakfast">Завтраки</a></hr>
+            <hr><a href="/cafe/lunch">Ланч</a></hr>
+            <hr><a href="/cafe/delivery">Доставка выпечки</a></hr>
+        </div>
+        <table class="scroll-table-body">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cafe : ${cafe}">
+                <td th:text="${cafe.id}"></td>
+                <td th:text="${cafe.name}"></td>
+                <td th:text="${cafe.description}"></td>
+                <td th:text="${cafe.price}"></td>
+                <td><a th:href="@{/update/coffe/{id}(id=${cafe.id})}">Edit</a></td>
+                <td><a th:href="@{/delete/coffe/{id}(id=${cafe.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <p><a href="/coffe-create">Добавить блюдо</a></p>
+        <button type="button"><a href="/cafe/coffe/id">Сортировать по столбцу id</a></button><br>
+        <button type="button"><a href="/cafe/coffe/price">Сортировать по столбцу price</a></button><br>
+        <button type="button"><a href="/cafe/coffe/name">Сортировать по столбцу name</a></button>
+        <form action="#" th:action="@{/find/coffe}" method="post">
+            <label for="searchline_coffe">text</label>
+            <input type="text" id="searchline_coffe" name="searchline" placeholder="Text">
+            <input type="submit" value="Find text">
+        </form>
+        <button type="button" style="float: right;"><a href="/about">About</a></button>
+    </div>
+    <div th:case="breakfast" class="scroll-table">
+        <div style="clear: both; text-align: center;">
+            <hr><a href="/cafe/desserts">Десерты и выпечка</a></hr>
+            <hr><a href="/cafe/coffe">Кофе/чай</a></hr>
+            <hr><a href="/cafe/breakfast">Завтраки</a></hr>
+            <hr><a href="/cafe/lunch">Ланч</a></hr>
+            <hr><a href="/cafe/delivery">Доставка выпечки</a></hr>
+        </div>
+        <table class="scroll-table-body">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Structure</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cafe : ${cafe}">
+                <td th:text="${cafe.id}"></td>
+                <td th:text="${cafe.name}"></td>
+                <td th:text="${cafe.structure}"></td>
+                <td th:text="${cafe.description}"></td>
+                <td th:text="${cafe.price}"></td>
+                <td><a th:href="@{/update/breakfast/{id}(id=${cafe.id})}">Edit</a></td>
+                <td><a th:href="@{/delete/breakfast/{id}(id=${cafe.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <p><a href="/breakfast-create">Добавить блюдо</a></p>
+        <button type="button"><a href="/cafe/breakfast/id">Сортировать по столбцу id</a></button><br>
+        <button type="button"><a href="/cafe/breakfast/price">Сортировать по столбцу price</a></button><br>
+        <button type="button"><a href="/cafe/breakfast/name">Сортировать по столбцу name</a></button>
+        <form action="#" th:action="@{/find/breakfast}" method="post">
+            <label for="searchline_breakfast">text</label>
+            <input type="text" id="searchline_breakfast" name="searchline" placeholder="Text">
+            <input type="submit" value="Find text">
+        </form>
+        <button type="button" style="float: right;"><a href="/about">About</a></button>
+    </div>
+    <div th:case="lunch" class="scroll-table">
+        <div style="clear: both; text-align: center;">
+            <hr><a href="/cafe/desserts">Десерты и выпечка</a></hr>
+            <hr><a href="/cafe/coffe">Кофе/чай</a></hr>
+            <hr><a href="/cafe/breakfast">Завтраки</a></hr>
+            <hr><a href="/cafe/lunch">Ланч</a></hr>
+            <hr><a href="/cafe/delivery">Доставка выпечки</a></hr>
+        </div>
+        <table class="scroll-table-body">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Structure</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cafe : ${cafe}">
+                <td th:text="${cafe.id}"></td>
+                <td th:text="${cafe.name}"></td>
+                <td th:text="${cafe.structure}"></td>
+                <td th:text="${cafe.description}"></td>
+                <td th:text="${cafe.price}"></td>
+                <td><a th:href="@{/update/lunch/{id}(id=${cafe.id})}">Edit</a></td>
+                <td><a th:href="@{/delete/lunch/{id}(id=${cafe.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <p><a href="/lunch-create">Добавить блюдо</a></p>
+        <button type="button"><a href="/cafe/lunch/id">Сортировать по столбцу id</a></button><br>
+        <button type="button"><a href="/cafe/lunch/price">Сортировать по столбцу price</a></button><br>
+        <button type="button"><a href="/cafe/lunch/name">Сортировать по столбцу name</a></button>
+        <form action="#" th:action="@{/find/lunch}" method="post">
+            <label for="searchline_lunch">text</label>
+            <input type="text" id="searchline_lunch" name="searchline" placeholder="Text">
+            <input type="submit" value="Find text">
+        </form>
+        <button type="button" style="float: right;"><a href="/about">About</a></button>
+    </div>
+    <div th:case="delivery" class="scroll-table">
+        <div style="clear: both; text-align: center;">
+            <hr><a href="/cafe/desserts">Десерты и выпечка</a></hr>
+            <hr><a href="/cafe/coffe">Кофе/чай</a></hr>
+            <hr><a href="/cafe/breakfast">Завтраки</a></hr>
+            <hr><a href="/cafe/lunch">Ланч</a></hr>
+            <hr><a href="/cafe/delivery">Доставка выпечки</a></hr>
+        </div>
+        <table class="scroll-table-body">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>FIO</th>
+                <th>Structure</th>
+                <th>Num</th>
+                <th>Address</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cafe : ${cafe}">
+                <td th:text="${cafe.id}"></td>
+                <td th:text="${cafe.fio}"></td>
+                <td th:text="${cafe.structure}"></td>
+                <td th:text="${cafe.num}"></td>
+                <td th:text="${cafe.address}"></td>
+                <td th:text="${cafe.price}"></td>
+                <td><a th:href="@{/update/delivery/{id}(id=${cafe.id})}">Edit</a></td>
+                <td><a th:href="@{/delete/delivery/{id}(id=${cafe.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <p><a href="/delivery-create">Добавить заказ</a></p>
+        <button type="button"><a href="/cafe/delivery/id">Сортировать по столбцу id</a></button><br>
+        <button type="button"><a href="/cafe/delivery/price">Сортировать по столбцу price</a></button><br>
+        <button type="button"><a href="/cafe/delivery/fio">Сортировать по столбцу fio</a></button>
+        <form action="#" th:action="@{/find/delivery}" method="post">
+            <label for="searchline_delivery">text</label>
+            <input type="text" id="searchline_delivery" name="searchline" placeholder="Text">
+            <input type="submit" value="Find text">
+        </form>
+        <button type="button" style="float: right;"><a href="/about">About</a></button>
+    </div>
+</div>
+</body>
+</html>
